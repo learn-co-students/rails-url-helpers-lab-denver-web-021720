@@ -8,6 +8,13 @@ class StudentsController < ApplicationController
   def show
   end
 
+  def edit
+    @student = Student.find(params[:id])
+    @student.change_active
+    @student.save
+    redirect_to action: "show"
+  end
+
   private
 
     def set_student
